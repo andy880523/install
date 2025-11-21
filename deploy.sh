@@ -110,7 +110,9 @@ show_menu() {
 		local note=$(fungit_get_dir_note "$dir" "$App_Token" "$GitHub_Path" "$GitHub_User" "$GitHub_Repo_Name" "$GitHub_Repo_Branch")
 		# 如果备注太长，可截断，例如 50 个字符
 		[[ ${#note} -gt 50 ]] && note="${note:0:50}..."
-		echo_content "blue" " —— $note"
+		echo "$note"
+		[[ -n "$note" ]] && echo_content "blue" " —— $note"
+		
 
 		((i++))
 	done
