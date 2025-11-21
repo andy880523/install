@@ -67,13 +67,13 @@ load_fun_deps() {
 	rm -f "$tmp_file"
 }
 
-Install_Dir="/home/devops"
+Install_Dir="/home/deploy"
 
 # 智能判断安装目录
 if [ "$(uname)" = "Darwin" ]; then
-	Install_Dir="$HOME/home/install/devops"
+	Install_Dir="$HOME/home/install/deploy"
 else
-	Install_Dir="/home/devops"
+	Install_Dir="/home/deploy"
 fi
 
 echo_content "red" "$Install_Dir"
