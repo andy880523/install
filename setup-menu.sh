@@ -30,7 +30,7 @@ echo_content() {
 # ------------------ 数组定义菜单项 ------------------
 Memu_Items=(
 	"退出"
-	"运行"
+	"安装"
 	"Docker工具"
 )
 
@@ -49,7 +49,7 @@ main() {
 	while true; do
 		clear
 		echo_content "skyBlue" "============================"
-		echo_content "red" "🚀 工具"
+		echo_content "red" "🚀 安装选择"
 		echo_content "red" "仓库: andy-deploy/deploy-gitlab (main)"
 		echo_content "skyBlue" "============================"
 		for i in "${!Memu_Items[@]}"; do
