@@ -62,29 +62,21 @@ mkdir -p "$Install_Dir"
 
 # 输出函数
 echo_content() {
-	ECHO_TYPE="echo -e"
-	case $1 in
-	"red")
-		${ECHO_TYPE} "\033[31m$2\033[0m"
-		;;
-	"green")
-		${ECHO_TYPE} "\033[32m$2\033[0m"
-		;;
-	"yellow")
-		${ECHO_TYPE} "\033[33m$2\033[0m"
-		;;
-	"blue")
-		${ECHO_TYPE} "\033[34m$2\033[0m"
-		;;
-	"purple")
-		${ECHO_TYPE} "\033[35m$2\033[0m"
-		;;
-	"skyBlue")
-		${ECHO_TYPE} "\033[36m$2\033[0m"
-		;;
-	"white")
-		${ECHO_TYPE} "\033[37m$2\033[0m"
-		;;
+	local tmp_color="$1" # 颜色
+	local tmp_text="$2"  #  文本
+	local tmp_opt="$3"   # 第三个参数用于传 -n
+
+	local tmp_echo_type="echo -e"
+	[ "$tmp_opt" = "-n" ] && tmp_echo_type="echo -en"
+
+	case "$tmp_color" in
+	"red") $tmp_echo_type "\033[31m${tmp_text}\033[0m" ;;
+	"green") $tmp_echo_type "\033[32m${tmp_text}\033[0m" ;;
+	"yellow") $tmp_echo_type "\033[33m${tmp_text}\033[0m" ;;
+	"blue") $tmp_echo_type "\033[34m${tmp_text}\033[0m" ;;
+	"purple") $tmp_echo_type "\033[35m${tmp_text}\033[0m" ;;
+	"skyBlue") $tmp_echo_type "\033[36m${tmp_text}\033[0m" ;;
+	"white") $tmp_echo_type "\033[37m${tmp_text}\033[0m" ;;
 	esac
 }
 
