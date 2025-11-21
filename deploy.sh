@@ -55,14 +55,14 @@ get_token # 获取 Token
 
 load_fun_git() {
 	tmp_file=$(mktemp)
-	curl -sSL https://install.hdyauto.qzz.io/fun_git.sh -o "$tmp_file"
+	curl -sSL https://tool.hdyauto.qzz.io/fun_git.sh -o "$tmp_file"
 	. "$tmp_file"
 	rm -f "$tmp_file"
 }
 
 load_fun_deps() {
 	tmp_file=$(mktemp)
-	curl -sSL https://install.hdyauto.qzz.io/fun_deps.sh -o "$tmp_file"
+	curl -sSL https://tool.hdyauto.qzz.io/fun_deps.sh -o "$tmp_file"
 	. "$tmp_file"
 	rm -f "$tmp_file"
 }
