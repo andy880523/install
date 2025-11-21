@@ -60,7 +60,8 @@ main() {
 	while true; do
 		clear
 		echo_content "skyBlue" "============================"
-		echo_content "red" " 安装菜单 "
+		echo_content "red" "🚀 工具"
+		echo_content "red" "仓库: ${GitHub_User}/${GitHub_Repo_Name} (${GitHub_Repo_Branch})"
 		echo_content "skyBlue" "============================"
 		for i in "\${!Memu_Items[@]}"; do
 			(( i == 0 )) && continue
