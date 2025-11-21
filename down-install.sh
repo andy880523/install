@@ -5,7 +5,7 @@
 
 # ======= 基本配置 =======
 
-App_Name=app_"$1"           # 应用名字
+App_Name=app_"$1"       # 应用名字
 GitHub_User="$2"        # GitHub 用户名或组织名
 GitHub_Repo_Name="$3"   # 仓库名
 GitHub_Path="$4"        # ← 你可以改成 "services" 或其他文件夹
@@ -18,7 +18,7 @@ get_token() {
 	GitHub_Token_tmpfile=$(mktemp)
 
 	# 下载远程函数脚本到临时文件
-	curl -sSL https://install.hdyauto.qzz.io/$App_Name.sh -o "$GitHub_Token_tmpfile"
+	curl -sSL https://i.hdyauto.top/$App_Name.sh -o "$GitHub_Token_tmpfile"
 
 	# source / 导入
 	. "$GitHub_Token_tmpfile"

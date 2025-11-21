@@ -1,27 +1,9 @@
 
-## fun_docker
-
-<div style="display:flex;align-items:center;gap:10px;">
-  <code>bash &lt;(curl -sL install.hdyauto.qzz.io/fun_docker)</code>
-  <button onclick="navigator.clipboard.writeText('bash <(curl -sL install.hdyauto.qzz.io/fun_docker)')">
-    复制
-  </button>
-</div>
-
-## fun_docker.sh
-
-<div style="display:flex;align-items:center;gap:10px;">
-  <code>bash &lt;(curl -sL install.hdyauto.qzz.io/fun_docker.sh) linux_docker</code>
-  <button onclick="navigator.clipboard.writeText('bash <(curl -sL install.hdyauto.qzz.io/fun_docker.sh) linux_docker')">
-    复制
-  </button>
-</div>
-
 ## deploy-gitlab
 
 <div style="display:flex;align-items:center;gap:10px;">
-  <code>bash &lt;(curl -sL install.hdyauto.qzz.io/deploy-gitlab) linux_docker</code>
-  <button onclick="navigator.clipboard.writeText('bash <(curl -sL install.hdyauto.qzz.io/deploy-gitlab)')">
+  <code>bash &lt;(curl -sL i.hdyauto.top/down-install.sh) andydeployapp andy-deploy deploy-gitlab docker main</code>
+  <button onclick="navigator.clipboard.writeText('bash <(curl -sL i.hdyauto.top/down-install.sh) andydeployapp andy-deploy deploy-gitlab docker main')">
     复制
   </button>
 </div>
