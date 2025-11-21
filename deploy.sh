@@ -114,7 +114,6 @@ show_menu() {
 		[[ ${#note} -gt 50 ]] && note="${note:0:50}..."
 		# echo "$note"
 		[[ -n "$note" ]] && echo_content "blue" " —— $note"
-		
 
 		((i++))
 	done

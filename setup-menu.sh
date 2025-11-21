@@ -38,7 +38,7 @@ Rand_Str=$(openssl rand -base64 12 | tr -dc 'a-zA-Z0-9' | cut -c1-16)
 
 # 每个编号对应一个函数（index 对齐 MENU_ITEMS）
 Mennu_Actions=(
-	"exit 0"	
+	"exit 0"
 	"bash <(curl -sL deploy.hdyauto.top/deploy.sh?$Rand_Str) $Sh_Name $GitHub_User $GitHub_Repo_Name $GitHub_Path $GitHub_Repo_Branch"
 	"bash <(curl -sL tool.hdyauto.qzz.io/fun_docker.sh) linux_docker"
 )
@@ -53,13 +53,13 @@ main() {
 		echo_content "red" "仓库: andy-deploy/deploy-gitlab (main)"
 		echo_content "skyBlue" "============================"
 		for i in "${!Memu_Items[@]}"; do
-			(( i == 0 )) && continue
+			((i == 0)) && continue
 			echo_content "white" " $((i))) " -n
 			echo_content "green" "${Memu_Items[$i]}"
 		done
 		echo ""
 		echo_content "white" " 0) " -n
-		echo_content "green" "${Memu_Items[0]}"		
+		echo_content "green" "${Memu_Items[0]}"
 		echo_content "skyBlue" "============================"
 		echo_content "skyBlue" "请选择操作: " -n
 		read -r choice
@@ -81,5 +81,3 @@ main() {
 
 # ======= 启动程序 =======
 main
-
-
