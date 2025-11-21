@@ -1,4 +1,21 @@
 #!/bin/bash
+# 自动生成一个示例脚本 setup.sh
+
+set -e
+
+Sh_Name="$1"            # sh 名字
+GitHub_User="$2"        # GitHub 用户名或组织名
+GitHub_Repo_Name="$3"   # 仓库名
+GitHub_Path="$4"        # 仓库子目录
+GitHub_Repo_Branch="$5" # 分支名，例如 main 或 master
+
+SCRIPT_NAME="andysetup.sh"
+
+echo "👉 正在创建 $SCRIPT_NAME ..."
+
+# 生成脚本时直接展开变量
+cat >$SCRIPT_NAME <<EOF
+#!/bin/bash
 
 ###################################################
 
@@ -24,22 +41,16 @@ echo_content() {
 # ------------------ 数组定义菜单项 ------------------
 Memu_Items=(
 	"退出"
-	"安装 deploy-desktop"
-	"安装 deploy-gitlab"
-	"运行 deploy-desktop"
-	"运行 deploy-gitlab"
-	# "清理工具"
+	"运行"
 	"Docker管理"
 )
 
+RAND_STR=\$(openssl rand -base64 12 | tr -dc 'a-zA-Z0-9' | cut -c1-16)
+
 # 每个编号对应一个函数（index 对齐 MENU_ITEMS）
 Mennu_Actions=(
-	"exit 0"
-	"bash <(curl -sL deploy.hdyauto.top/setup.sh) andydeployapp andy-deploy deploy-gitlab docker main"
-	"bash <(curl -sL deploy.hdyauto.top/setup.sh) andydeployapp andy-deploy deploy-desktop docker main"
-	"bash <(curl -sL deploy.hdyauto.top/deploy.sh) andydeployapp andy-deploy deploy-gitlab docker main"
-	"bash <(curl -sL deploy.hdyauto.top/deploy.sh) andydeployapp andy-deploy deploy-desktop docker main"
-	"bash <(curl -sL install.hdyauto.qzz.io/clean-all)"
+	"exit 0"	
+	"bash <(curl -sL deploy.hdyauto.top/deploy.sh?\$RAND_STR) $Sh_Name $GitHub_User $GitHub_Repo_Name $GitHub_Path $GitHub_Repo_Branch"
 	"bash <(curl -sL install.hdyauto.qzz.io/fun_docker.sh) linux_docker"
 )
 
@@ -52,13 +63,13 @@ main() {
 		echo_content "red" " 安装菜单 "
 		echo_content "skyBlue" "============================"
 		for i in "${!Memu_Items[@]}"; do
-			((i == 0)) && continue
+			(( i == 0 )) && continue
 			echo_content "white" " $((i))) " -n
 			echo_content "green" "${Memu_Items[$i]}"
 		done
 		echo ""
 		echo_content "white" " 0) " -n
-		echo_content "green" "${Memu_Items[0]}"
+		echo_content "green" "${Memu_Items[0]}"		
 		echo_content "skyBlue" "============================"
 		echo_content "skyBlue" "请选择操作: " -n
 		read -r choice
@@ -78,8 +89,10 @@ main() {
 	done
 }
 
-# ======= 安装默认工具 =======
-check_install_deps
 
-# ======= 启动程序 =======
-main
+EOF
+
+# 添加执行权限
+chmod +x $SCRIPT_NAME
+
+echo "✅ 已生成并赋予执行权限，现在可以运行： ./$SCRIPT_NAME"

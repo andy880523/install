@@ -80,8 +80,6 @@ echo_content "red" "$Install_Dir"
 
 mkdir -p "$Install_Dir"
 
-
-
 show_menu() {
 	clear
 	echo_content "skyBlue" "=============================="
@@ -107,12 +105,12 @@ show_menu() {
 
 		# echo "$i) $dir [$STATUS]"
 		echo_content "white" "$i) " -n
-		echo_content "green" "$dir [$STATUS]"	
+		echo_content "green" "$dir [$STATUS]"
 		((i++))
 	done
 	echo ""
 	echo_content "white" "0) " -n
-	echo_content "green" "退出"	
+	echo_content "green" "退出"
 	echo_content "skyBlue" "------------------------------"
 }
 
